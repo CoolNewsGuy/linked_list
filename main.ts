@@ -10,12 +10,12 @@ class Node<T> {
 
 class LinkedList<T> {
     private listHead: Node<T> | null;
-    private tail: Node<T> | null;
+    private listTail: Node<T> | null;
     private listSize: number;
 
     constructor(head: Node<T> | null = null) {
         this.listHead = head;
-        this.tail = null;
+        this.listTail = null;
         this.listSize = 0;
     }
 
@@ -25,7 +25,7 @@ class LinkedList<T> {
 
         if (this.listHead === null) {
             this.listHead = newNode;
-            this.tail = this.listHead;
+            this.listTail = this.listHead;
             return;
         }
 
@@ -36,7 +36,7 @@ class LinkedList<T> {
         }
 
         headCopy.nextNode = newNode;
-        this.tail = headCopy.nextNode;
+        this.listTail = headCopy.nextNode;
     }
 
     prepend(value: T) {
@@ -54,5 +54,11 @@ class LinkedList<T> {
         const headValue = this.listHead?.value;
 
         return headValue === undefined ? null : headValue;
+    }
+
+    tail(): T | null {
+        const tailValue = this.listTail?.value;
+
+        return tailValue === undefined ? null : tailValue;
     }
 }
