@@ -62,7 +62,7 @@ class LinkedList<T> {
         return tailValue === undefined ? null : tailValue;
     }
 
-    at(index: number): T | null {
+    at(index: number): Node<T> | null {
         let i = 0;
         let headCopy = this.listHead;
 
@@ -72,6 +72,6 @@ class LinkedList<T> {
             i += 1;
         }
 
-        return headCopy?.value === undefined ? null : headCopy.value;
+        return headCopy;
     }
 }
