@@ -45,4 +45,8 @@ class LinkedList<T> {
 
         [newNode.nextNode, this.head] = [this.head, newNode];
     }
+
+    size(): number {
+        return this.listSize;
+    }
 }
