@@ -145,6 +145,8 @@ class LinkedList<T> {
             return;
         }
 
+        this.listSize += 1;
+
         const nodeBeforeIndex = this.at(index - 1) as Node<T>;
         const newNode = new Node(value, nodeBeforeIndex.nextNode);
 
