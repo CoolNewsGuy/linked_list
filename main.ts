@@ -84,4 +84,18 @@ class LinkedList<T> {
             this.listSize -= 1;
         }
     }
+
+    contains(value: T): boolean {
+        let headCopy = this.listHead;
+
+        while (headCopy !== null) {
+            if (headCopy.value === value) {
+                return true;
+            }
+
+            headCopy = headCopy.nextNode;
+        }
+
+        return false;
+    }
 }
