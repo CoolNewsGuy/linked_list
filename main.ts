@@ -9,12 +9,12 @@ class Node<T> {
 }
 
 class LinkedList<T> {
-    private head: Node<T> | null;
+    private listHead: Node<T> | null;
     private tail: Node<T> | null;
     private listSize: number;
 
     constructor(head: Node<T> | null = null) {
-        this.head = head;
+        this.listHead = head;
         this.tail = null;
         this.listSize = 0;
     }
@@ -23,13 +23,13 @@ class LinkedList<T> {
         this.listSize += 1;
         const newNode = new Node(value, null);
 
-        if (this.head === null) {
-            this.head = newNode;
-            this.tail = this.head;
+        if (this.listHead === null) {
+            this.listHead = newNode;
+            this.tail = this.listHead;
             return;
         }
 
-        let headCopy = this.head;
+        let headCopy = this.listHead;
 
         while (headCopy.nextNode !== null) {
             headCopy = headCopy.nextNode;
@@ -43,10 +43,16 @@ class LinkedList<T> {
         this.listSize += 1;
         const newNode = new Node(value);
 
-        [newNode.nextNode, this.head] = [this.head, newNode];
+        [newNode.nextNode, this.listHead] = [this.listHead, newNode];
     }
 
     size(): number {
         return this.listSize;
+    }
+
+    head(): T | null {
+        const headValue = this.listHead?.value;
+
+        return headValue === undefined ? null : headValue;
     }
 }
