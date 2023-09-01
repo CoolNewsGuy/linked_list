@@ -18,4 +18,24 @@ class LinkedList<T> {
         this.tail = null;
         this.listSize = 0;
     }
+
+    append(value: T): void {
+        this.listSize += 1;
+        const newNode = new Node(value, null);
+
+        if (this.head === null) {
+            this.head = newNode;
+            this.tail = this.head;
+            return;
+        }
+
+        let headCopy = this.head;
+
+        while (headCopy.nextNode !== null) {
+            headCopy = headCopy.nextNode;
+        }
+
+        headCopy.nextNode = newNode;
+        this.tail = headCopy.nextNode;
+    }
 }
