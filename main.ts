@@ -129,4 +129,25 @@ class LinkedList<T> {
 
         return result;
     }
+
+    insertAt(value: T, index: number): void {
+        if (index > this.listSize) {
+            return;
+        }
+
+        if (index === 0) {
+            this.prepend(value);
+            return;
+        }
+
+        if (index === this.listSize) {
+            this.append(value);
+            return;
+        }
+
+        const nodeBeforeIndex = this.at(index - 1) as Node<T>;
+        const newNode = new Node(value, nodeBeforeIndex.nextNode);
+
+        nodeBeforeIndex.nextNode = newNode;
+    }
 }
