@@ -98,4 +98,20 @@ class LinkedList<T> {
 
         return false;
     }
+
+    find(value: T): number | null {
+        let i = 0;
+        let headCopy = this.listHead;
+
+        while (headCopy !== null) {
+            if (headCopy.value === value) {
+                return i;
+            }
+
+            i += 1;
+            headCopy = headCopy.nextNode;
+        }
+
+        return null;
+    }
 }
