@@ -61,4 +61,17 @@ class LinkedList<T> {
 
         return tailValue === undefined ? null : tailValue;
     }
+
+    at(index: number): T | null {
+        let i = 0;
+        let headCopy = this.listHead;
+
+        while (i < index && headCopy !== null) {
+            headCopy = headCopy.nextNode;
+
+            i += 1;
+        }
+
+        return headCopy?.value === undefined ? null : headCopy.value;
+    }
 }
