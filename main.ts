@@ -50,16 +50,12 @@ class LinkedList<T> {
         return this.listSize;
     }
 
-    head(): T | null {
-        const headValue = this.listHead?.value;
-
-        return headValue === undefined ? null : headValue;
+    head(): Node<T> | null {
+        return this.listHead;
     }
 
-    tail(): T | null {
-        const tailValue = this.listTail?.value;
-
-        return tailValue === undefined ? null : tailValue;
+    tail(): Node<T> | null {
+        return this.listTail;
     }
 
     at(index: number): Node<T> | null {
