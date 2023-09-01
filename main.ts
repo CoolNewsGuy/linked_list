@@ -114,4 +114,19 @@ class LinkedList<T> {
 
         return null;
     }
+
+    toString(): string {
+        let result = "";
+        let headCopy = this.listHead;
+
+        while (headCopy !== null) {
+            result += `${headCopy.value} -> `;
+
+            headCopy = headCopy.nextNode;
+        }
+
+        result += null;
+
+        return result;
+    }
 }
