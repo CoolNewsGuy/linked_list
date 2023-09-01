@@ -39,7 +39,7 @@ class LinkedList<T> {
         this.listTail = headCopy.nextNode;
     }
 
-    prepend(value: T) {
+    prepend(value: T): void {
         this.listSize += 1;
         const newNode = new Node(value);
 
