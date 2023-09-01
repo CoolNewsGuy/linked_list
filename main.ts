@@ -72,10 +72,16 @@ class LinkedList<T> {
     }
 
     pop(): void {
+        if (this.listSize === 1) {
+            this.listHead = null;
+            this.listSize = 0;
+        }
+
         this.listTail = this.at(this.listSize - 2);
 
         if (this.listTail !== null) {
             this.listTail.nextNode = null;
+            this.listSize -= 1;
         }
     }
 }
