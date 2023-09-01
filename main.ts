@@ -150,4 +150,26 @@ class LinkedList<T> {
 
         nodeBeforeIndex.nextNode = newNode;
     }
+
+    removeAt(index: number): void {
+        if (index >= this.listSize) {
+            return;
+        }
+
+        this.listSize -= 1;
+
+        if (index === 0) {
+            this.listHead =
+                this.listHead?.nextNode === undefined
+                    ? null
+                    : this.listHead.nextNode;
+
+            return;
+        }
+
+        const nodeBeforeIndex = this.at(index - 1) as Node<T>;
+        const nodeAfterIndex = this.at(index + 1);
+
+        nodeBeforeIndex.nextNode = nodeAfterIndex;
+    }
 }
