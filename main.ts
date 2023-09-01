@@ -161,16 +161,24 @@ class LinkedList<T> {
         this.listSize -= 1;
 
         if (index === 0) {
-            this.listHead =
-                this.listHead?.nextNode === undefined
-                    ? null
-                    : this.listHead.nextNode;
+            const nodeAfterHead = this.listHead?.nextNode as Node<T> | null;
 
+            if (nodeAfterHead === null) {
+                this.listHead = null;
+                this.listTail = null;
+                return;
+            }
+
+            this.listHead = nodeAfterHead;
             return;
         }
 
         const nodeBeforeIndex = this.at(index - 1) as Node<T>;
         const nodeAfterIndex = this.at(index + 1);
+
+        if (nodeAfterIndex === null) {
+            this.listTail = nodeBeforeIndex;
+        }
 
         nodeBeforeIndex.nextNode = nodeAfterIndex;
     }
