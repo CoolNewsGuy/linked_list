@@ -74,4 +74,12 @@ class LinkedList<T> {
 
         return headCopy;
     }
+
+    pop(): void {
+        this.listTail = this.at(this.listSize - 2);
+
+        if (this.listTail !== null) {
+            this.listTail.nextNode = null;
+        }
+    }
 }
