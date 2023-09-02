@@ -59,6 +59,14 @@ class LinkedList<T> {
     }
 
     at(index: number): Node<T> | null {
+        if (index < 0) {
+            if (Math.abs(index) > this.listSize) {
+                return null;
+            }
+
+            return this.at(index + this.listSize);
+        }
+
         let i = 0;
         let headCopy = this.listHead;
 
