@@ -19,6 +19,16 @@ class LinkedList<T> {
         this.listSize = 0;
     }
 
+    static fromArray<U>(arr: U[]): LinkedList<U> {
+        const list = new LinkedList<U>();
+
+        for (const value of arr) {
+            list.append(value);
+        }
+
+        return list;
+    }
+
     append(value: T): void {
         this.listSize += 1;
         const newNode = new Node(value, null);
