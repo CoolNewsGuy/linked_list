@@ -190,4 +190,26 @@ class LinkedList<T> {
 
         nodeBeforeIndex.nextNode = nodeAfterIndex;
     }
+
+    [Symbol.iterator](): {
+        next: () => { value: T; done: boolean } | { done: true };
+    } {
+        let index = 0;
+
+        return {
+            next: () => {
+                if (index < this.listSize) {
+                    const value = this.at(index++)?.value as T;
+
+                    return {
+                        value: value,
+                        done: false,
+                    };
+                }
+                return {
+                    done: true,
+                };
+            },
+        };
+    }
 }
