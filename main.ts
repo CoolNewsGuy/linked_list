@@ -139,7 +139,7 @@ class LinkedList<T> {
     }
 
     insertAt(value: T, index: number): void {
-        if (index > this.listSize) {
+        if (index > this.listSize || index < 0) {
             return;
         }
 
