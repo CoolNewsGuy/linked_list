@@ -201,6 +201,7 @@ class LinkedList<T> {
         nodeBeforeIndex.nextNode = nodeAfterIndex;
     }
 
+    // So that you can iterate over linked list values using `for of` loop
     [Symbol.iterator](): {
         next: () => { value: T; done: boolean } | { done: true };
     } {
